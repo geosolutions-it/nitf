@@ -1,0 +1,28 @@
+import os, shutil
+import Options
+
+configure = distclean = lambda x: False
+
+def build(bld):
+    variant = bld.env['VARIANT']
+    env = bld.env_of_name(variant)
+    
+    #---------------------------------------------------------------------------
+    ###### JASPER PLUG-IN
+    libPattern = env['shlib_PATTERN']
+    if libPattern.startswith('lib'):
+        libPattern = libPattern[3:]
+    libEnv = env.copy()
+    
+    lib = bld.new_task_gen('cc', 'shlib', target='JasPerDecompress',
+                           uselib_local='JASPER nitf-c'.split(), env=libEnv,
+                           install_path='${PREFIX}/share/nitf/plugins')
+    lib.find_sources_in_dirs('./source', excludes=['JasPerCompress.c'])
+    libEnv['shlib_PATTERN'] = libPattern
+
+    lib = bld.new_task_gen('cc', 'shlib', target='JasPerCompress',
+                           uselib_local='JASPER nitf-c'.split(), env=libEnv,
+                           install_path='${PREFIX}/share/nitf/plugins')
+    lib.find_sources_in_dirs('./source', excludes=['JasPerDecompress.c'])
+    libEnv['shlib_PATTERN'] = libPattern
+

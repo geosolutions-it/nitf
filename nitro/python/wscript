@@ -1,0 +1,15 @@
+import os
+import Options
+
+configure = distclean = lambda x: None
+
+def set_options(opt):
+    opt.sub_options('nitf')
+    
+def build(bld):
+    variant = bld.env['VARIANT'] or 'default'
+    env = bld.env_of_name(variant)
+    if 'PYTHON' in env and env['PYTHON'] and \
+            'HAVE_PYTHON_H' in env and env['HAVE_PYTHON_H']:
+        bld.add_subdirs('nitf')
+
