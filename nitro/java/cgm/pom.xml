@@ -60,15 +60,6 @@
 		</developer>
 	</developers>
 
-	<properties>
-		<nitro.version>2.7-dev</nitro.version>
-		<log4j.version>1.2.14</log4j.version>
-		<commons-logging.version>1.1.1</commons-logging.version>
-		<commons-lang.version>2.4</commons-lang.version>
-		<commons-io.version>1.4</commons-io.version>
-		<junit.version>4.4</junit.version>
-	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>log4j</groupId>
@@ -102,7 +93,7 @@
 		</dependency>
 		<dependency>
 			<groupId>nitro-nitf</groupId>
-			<artifactId>nitf</artifactId>
+			<artifactId>nitf-bindings</artifactId>
 			<version>${nitro.version}</version>
 			<scope>compile</scope>
 		</dependency>
@@ -117,8 +108,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<inherited>true</inherited>
 					<configuration>
-						<source>1.5</source>
-						<target>1.5</target>
+						<source>17</source>
+						<target>17</target>
 						<debug>false</debug>
 						<optimize>true</optimize>
 						<showDeprecation>true</showDeprecation>

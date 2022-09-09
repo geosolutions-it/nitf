@@ -66,8 +66,6 @@ import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
-import sun.awt.image.SunWritableRaster;
-
 public class ImageIOUtils
 {
 
@@ -392,7 +390,7 @@ public class ImageIOUtils
         BandedSampleModel bsm = new BandedSampleModel(dataType, numElems,
                 numLines, bandOffsets.length, bandOffsets, bandOffsets);
 
-        SunWritableRaster ras = new SunWritableRaster(bsm, d, new Point(0, 0));
+        WritableRaster ras = Raster.createWritableRaster(bsm, d, new Point(0, 0));
         return ras;
     }
 
@@ -433,7 +431,7 @@ public class ImageIOUtils
                 dataType, numElems, numLines, bandOffsets.length, numElems
                         * bandOffsets.length, bandOffsets);
 
-        SunWritableRaster ras = new SunWritableRaster(pism, d, new Point(0, 0));
+        WritableRaster ras = Raster.createWritableRaster(pism, d, new Point(0, 0));
         return ras;
     }
 
