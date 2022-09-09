@@ -49,16 +49,6 @@
 		</developer>
 	</developers>
 
-	<properties>
-		<nitro.version>2.7-dev</nitro.version>
-		<log4j.version>1.2.14</log4j.version>
-		<commons-logging.version>1.1.1</commons-logging.version>
-		<commons-lang.version>2.4</commons-lang.version>
-		<commons-io.version>1.4</commons-io.version>
-		<junit.version>4.4</junit.version>
-		<imagej.version>1.42</imagej.version>
-	</properties>
-
 	<!-- By default, http://repo1.maven.org/maven2/ is used, but some jars aren't 
 		available there, so we add the local lib path where we have some jars under 
 		version control -->
@@ -101,12 +91,12 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>nitro-nitf</groupId>
-			<artifactId>nitf</artifactId>
-			<version>${nitro.version}</version>
-			<scope>compile</scope>
-		</dependency>
+<!--		<dependency>-->
+<!--			<groupId>nitro-nitf</groupId>-->
+<!--			<artifactId>nitf</artifactId>-->
+<!--			<version>${nitro.version}</version>-->
+<!--			<scope>compile</scope>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>nitro-nitf</groupId>
 			<artifactId>imageio</artifactId>
@@ -130,8 +120,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<inherited>true</inherited>
 					<configuration>
-						<source>1.5</source>
-						<target>1.5</target>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
 						<debug>false</debug>
 						<optimize>true</optimize>
 						<showDeprecation>true</showDeprecation>
